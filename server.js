@@ -3,13 +3,9 @@ const express = require("express");
 
 const cors = require("cors");
 
-let corsOptions = {
-    origin: "*"
-};
-
 const app = express();
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
@@ -47,7 +43,7 @@ app.get("*", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 4050;
+const PORT = process.env.PORT || 8888;
 app.listen(PORT, (err) => {
     if (err) console.log(err);
 
