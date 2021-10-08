@@ -71,4 +71,28 @@ describe("ShortLink API test",function(){
       }
     );
   	});
+
+  	it("Should call all available links",function(done){
+    request.get(
+      {
+        url : urlBase + "/api/list"
+      },
+      (error, response, body) => {
+
+        let _body = {};
+        try{
+          _body = JSON.parse(body);
+        }
+        catch(e){
+          _body = {};
+        }
+
+        expect(response.statusCode).to.equal(200);
+
+        done(); 
+      }
+    );
+  	});
+
+
 });
