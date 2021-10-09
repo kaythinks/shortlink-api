@@ -13,14 +13,6 @@ describe("ShortLink API test",function(){
       },
       (error, response, body) => {
 
-        let _body = {};
-        try{
-          _body = JSON.parse(body);
-        }
-        catch(e){
-          _body = {};
-        }
-
         expect(response.statusCode).to.equal(200);
 
         done(); 
@@ -34,14 +26,6 @@ describe("ShortLink API test",function(){
         url : urlBase 
       },
       (error, response, body) => {
-
-        let _body = {};
-        try{
-          _body = JSON.parse(body);
-        }
-        catch(e){
-          _body = {};
-        }
 
         expect(response.statusCode).to.equal(200);
 
@@ -57,14 +41,6 @@ describe("ShortLink API test",function(){
       },
       (error, response, body) => {
 
-        let _body = {};
-        try{
-          _body = JSON.parse(body);
-        }
-        catch(e){
-          _body = {};
-        }
-
         expect(response.statusCode).to.equal(404);
 
         done(); 
@@ -79,14 +55,6 @@ describe("ShortLink API test",function(){
       },
       (error, response, body) => {
 
-        let _body = {};
-        try{
-          _body = JSON.parse(body);
-        }
-        catch(e){
-          _body = {};
-        }
-
         expect(response.statusCode).to.equal(200);
 
         done(); 
@@ -94,5 +62,20 @@ describe("ShortLink API test",function(){
     );
   	});
 
+
+  	it("Should create an encoded link",function(done){
+    request.post(
+      {
+        url : urlBase + "/api/encode"
+        , form: {original_link : "https://google.com"}
+      },
+      (error, response, body) => {
+
+        expect(response.statusCode).to.equal(200);
+
+        done(); 
+      }
+    );
+  	});
 
 });
