@@ -18,10 +18,6 @@ const links = require("./app/controllers/links.controller.js");
 
 db.sequelize.sync()
 
-// db.sequelize.sync({ force: true }).then(() => {
-//     console.log("Drop and re-sync db.");
-// });
-
 // simple route
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the Shortlink API." });
